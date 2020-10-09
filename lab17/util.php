@@ -39,9 +39,6 @@
         return $pass;
     }
 
-    //Haz por lo menos dos funciones que hagan una consulta a la base de datos con algunos parametros.
-    //funcion que regresará los datos de una fruta que tenga en su nombre el parámetros
-    //Ejemplo, si pongo manzana, me puede regresar manzana roja, manzana whashington, etc.accent-1
     function getRol($idusuario)
     {
         $conn = connectDb();
@@ -52,6 +49,28 @@
 
         closeDb($conn);
         return $rol;
+    }
+
+    function getUsers()
+    {
+        $conn = connectDb();
+        $sql = "SELECT Id_Usuario, Nombre, Apellidos FROM usuario";
+        $result = mysqli_query($conn, $sql);
+
+        closeDb($conn);
+
+        return $result;
+    }
+
+    function getEmp()
+    {
+        $conn = connectDb();
+        $sql = "SELECT Id_Usuario, RFC FROM trabajadores";
+        $result = mysqli_query($conn, $sql);
+
+        closeDb($conn);
+
+        return $result;
     }
 
 ?>
